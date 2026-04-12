@@ -1,8 +1,7 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEditor;
-
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TopoLines : MonoBehaviour
 {
@@ -60,11 +59,8 @@ public class TopoLines : MonoBehaviour
         return sceneFolderPath;
     }
 
-    [ContextMenu("Generate Topo Map")]
     public void GenerateTopoMap()
     {
-        //topoMap = ContourMap.FromTerrain( terrain );
-        //topoMap = ContourMap.FromTerrain( terrain, numberOfBands );
         topoMap = ContourMap.FromTerrain(terrain, numberOfBands, bandColor, backgroundColor);
 
         if (outputPlain)
@@ -74,12 +70,9 @@ public class TopoLines : MonoBehaviour
 
         ContourMap.SaveTextureToSceneFile(topoMap, exportFolder);
 
-
         CreateAndSaveMaterial(topoMap);
         SaveTextureToPNG(topoMap);
-
     }
-
 
     private void SaveTextureToPNG(Texture2D texture)
     {
@@ -113,15 +106,14 @@ public class TopoLines : MonoBehaviour
         Debug.Log($"PNG saved: {pngPath}");
     }
 
-
-
     private void CreateAndSaveMaterial(Texture2D texture)
     {
         Debug.Log("Creating material for topo map");
 
         string sceneName = GetSceneNameOrDefault();
         string sceneFolderPath = EnsureSceneFolderExists(sceneName);
-        string materialPath = Path.Combine(sceneFolderPath, sceneName + TOPO_MAP_SUFFIX + ".mat").Replace("\\", "/");
+        string materialPath = Path.Combine(sceneFolderPath, sceneName + TOPO_MAP_SUFFIX + ".mat")
+            .Replace("\\", "/");
         Debug.Log($"Material path: {materialPath}");
 
         Shader standardShader = Shader.Find(SHADER_TYPE);
@@ -154,5 +146,4 @@ public class TopoLines : MonoBehaviour
             Debug.LogWarning("Output renderer is not assigned");
         }
     }
-
 }

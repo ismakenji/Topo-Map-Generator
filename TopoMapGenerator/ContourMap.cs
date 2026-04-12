@@ -1,11 +1,9 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine.SceneManagement;
 using UnityEditor;
-
-
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ContourMap : MonoBehaviour
 {
@@ -18,7 +16,12 @@ public class ContourMap : MonoBehaviour
     }
 
     // define all parameters
-    public static Texture2D FromTerrain(Terrain terrain, int numberOfBands, Color bandColor, Color bkgColor)
+    public static Texture2D FromTerrain(
+        Terrain terrain,
+        int numberOfBands,
+        Color bandColor,
+        Color bkgColor
+    )
     {
         // dimensions
         int width = terrain.terrainData.heightmapResolution;
@@ -108,10 +111,11 @@ public class ContourMap : MonoBehaviour
                     if (slice[x, y] == true)
                     {
                         if (
-                            slice[x - 1, y] == false ||
-                            slice[x + 1, y] == false ||
-                            slice[x, y - 1] == false ||
-                            slice[x, y + 1] == false)
+                            slice[x - 1, y] == false
+                            || slice[x + 1, y] == false
+                            || slice[x, y - 1] == false
+                            || slice[x, y + 1] == false
+                        )
                         {
                             // heightmap is read y,x from bottom left
                             // texture is read x,y from top left
@@ -123,7 +127,6 @@ public class ContourMap : MonoBehaviour
                     }
                 }
             }
-
         }
 
         // apply colour array to texture
@@ -142,7 +145,9 @@ public class ContourMap : MonoBehaviour
     public static void SaveTextureToSceneFile(Texture2D texture, string folderName)
     {
         if (texture == null)
+        {
             return;
+        }
 
         string sceneName = SceneManager.GetActiveScene().name;
         if (string.IsNullOrEmpty(sceneName))
@@ -167,7 +172,8 @@ public class ContourMap : MonoBehaviour
             AssetDatabase.CreateFolder(folderPath, sceneName);
         }
 
-        string assetPath = Path.Combine(sceneFolderPath, sceneName + "_TopoMap.asset").Replace("\\", "/");
+        string assetPath = Path.Combine(sceneFolderPath, sceneName + "_TopoMap.asset")
+            .Replace("\\", "/");
 
         AssetDatabase.CreateAsset(texture, assetPath);
         AssetDatabase.SaveAssets();
