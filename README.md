@@ -27,3 +27,8 @@ The "Topo Lines" component has several configurable fields:
 - A "Plane" or "Quad" renderer are prefered. Just make sure to adjust the scale of the renderer to fit the size of the terrain for optimal display.
 - Remember that only the terrain's heightmap data is used to generate the contour lines, so the topographic map will not reflect any other meshes or objects in the scene. You can edit the generated PNG file in an image editor to add any additional details or features if desired.
 - Using a Max Size of 1024, compression in "Normal Quality" and Crunch Compression at a 100% will significantly reduce the file size of the generated topographic map without much loss in quality.
+
+## Credits
+- **Dave29483** & **AlucardJay**: Original code.
+- **[Kenji]**(https://github.com/ismakenji): Made this version of the script to work as it does now.
+- **[mrov]**(https://github.com/AndreyMrovol): Additional help and optimizations.
