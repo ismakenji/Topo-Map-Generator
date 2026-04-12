@@ -30,5 +30,5 @@ The "Topo Lines" component has several configurable fields:
 
 ## Credits
 - **Dave29483** & **AlucardJay**: Original code.
-- **[Kenji]**(https://github.com/ismakenji): Made this version of the script to work as it does now.
-- **[mrov]**(https://github.com/AndreyMrovol): Additional help and optimizations.
+- **[Kenji](https://github.com/ismakenji)**: Made this version of the script to work as it does now.
+- **[mrov](https://github.com/AndreyMrovol)**: Additional help and optimizations.
