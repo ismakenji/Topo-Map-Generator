@@ -29,6 +29,6 @@ The "Topo Lines" component has several configurable fields:
 - Using a Max Size of 1024, compression in "Normal Quality" and Crunch Compression at a 100% will significantly reduce the file size of the generated topographic map without much loss in quality.
 
 ## Credits
-- **Dave29483** & **AlucardJay**: Original code.
+- **[Dave29483 & AlucardJay](https://discussions.unity.com/t/turn-a-terrain-into-a-contoured-map/116441)**: Original code.
 - **[Kenji](https://github.com/ismakenji)**: Made this version of the script to work as it does now.
 - **[mrov](https://github.com/AndreyMrovol)**: Additional help and optimizations.
